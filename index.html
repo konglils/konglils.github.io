@@ -1,32 +1,40 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="./output.css" rel="stylesheet">
+  <link href="/style.css" rel="stylesheet">
   <title>空里流霜不觉飞</title>
 </head>
-<body class="flex flex-col h-screen">
-  <header class="mx-2 border-b border-gray-200">
-    <div class="mx-auto my-2 flex max-w-4xl justify-between">
-      <a class="font-logo text-4xl font-semibold" href="">空里流霜</a>
-      <nav class="place-content-center font-title text-2xl">
-        <ul class="flex space-x-8">
-          <li><a href="">文章</a></li>
-          <li><a href="">关于</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <main class="mx-2 flex-grow">
-    <div class="mx-auto my-2 max-w-4xl">
+<body>
+  <header>
+    <nav>
+      <a class="headline" href="/">空里流霜</a>
       <ul>
-        <li class="my-4 flex justify-between border-b border-gray-200">
-          <a class="font-title text-xl" href="">你好</a>
-          <span class="font-date">2024-11-25</span>
+        <li>
+          <a href="/">首页</a>
+        </li>
+        <li>
+          <a href="">关于</a>
         </li>
       </ul>
-    </div>
+    </nav>
+  </header>
+  <main>
+    <ul>
+      <li>
+        <a href="/post/float-and-endian/">
+          <span class="article-title">浮点数和端序</span>
+          <span class="publish-date">2024-12-18</span>
+        </a>
+      </li>
+      <li>
+        <a>
+          <span class="article-title">你好</span>
+          <span class="publish-date">2024-11-25</span>
+        </a>
+      </li>
+    </ul>
   </main>
 </body>
 </html>
