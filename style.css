@@ -21,13 +21,12 @@ nav {
 }
 
 .headline {
-  font-family: '楷体';
-  font-size: 2.2rem;
-  font-weight: bold;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-left: 0;
-  margin-right: auto;
+  display: flex;
+}
+
+.nav-title {
+  width: 2.2rem;
+  height: 3.4rem;
 }
 
 a {
