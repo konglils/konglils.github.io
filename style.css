@@ -1,6 +1,35 @@
+:root {
+  --sans-serif-font:
+    system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Noto Sans', 'Droid Sans', 'Helvetica Neue',
+    'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'WenQuanYi Micro Hei',
+    sans-serif;
+  --serif-font:
+    'Times New Roman', Times,
+    Georgia, 'Songti SC',
+    'SimSun', 'NSimSun',
+    'STKaiti', 'KaiTi',
+    'Noto Serif CJK SC', 'Source Han Serif SC',
+    'Hiragino Mincho Pro', 'YuMincho',
+    'Baskerville', 'Palatino Linotype',
+    serif;
+  --monospace-font:
+    'Consolas', 'Lucida Console',
+    'SF Mono', 'Menlo', 'Monaco',
+    'DejaVu Sans Mono', 'Liberation Mono',
+    'Noto Sans Mono CJK SC', 'Source Han Mono SC',
+    'Droid Sans Mono', 'Roboto Mono',
+    'Ubuntu Mono', 'Oxygen Mono',
+    'Nimbus Mono L', 'Monaco',
+    'Courier New', Courier,
+    monospace;
+}
+
 body {
   font-size: 20px;
-  font-family: '仿宋';
+  font-family: var(--sans-serif-font);
   margin: 0 10px;
 }
 
@@ -42,6 +71,7 @@ nav ul {
   margin-bottom: auto;
   margin-left: auto;
   margin-right: 0;
+  font-family: var(--serif-font);
 }
 
 nav ul li {
@@ -73,44 +103,44 @@ main ul li {
 main ul li a {
   display: flex;
   padding: 0.2rem 0;
+  line-height: 2rem;
 }
 
-.article-title {
+.post-title {
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 0;
   margin-left: 0.2rem;
   margin-right: auto;
 }
 
-.publish-date {
+.homepage-time {
   margin-left: auto;
   margin-right: 0.2rem;
-  font-family: 'Lucida Console';
   font-size: 1rem;
 }
 
 article {
   padding-bottom: 3rem;
-  font-family: 
-    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", 
-    "WenQuanYi Micro Hei", "Helvetica Neue", Arial, sans-serif;
   font-size: 1.1rem;
   line-height: 2rem;
 }
 
 .multiline-code {
   padding: 1rem;
-  border: 1px solid lightgray;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
   overflow-x: auto;
+  background-color: #f5f5f5;
 }
 
 .inline-code {
   padding: 0.2rem;
-  border: 1px solid lightgray;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
+  background-color: #f5f5f5;
 }
 
 code {
-  font-family: 'Cascadia Mono', 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: var(--monospace-font);
   font-size: 1.1rem;
 }
 
@@ -129,4 +159,13 @@ table, th, td {
 .heading {
   text-align: center;
   font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--serif-font);
+  font-weight: normal;
+}
+
+.post-info {
+  font-family: var(--serif-font);
 }
