@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +7,45 @@
   <title>空里流霜不觉飞</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="headline" href="/">
-        <img class="nav-title" src="/img/kong.svg" alt="kong">
-        <img class="nav-title" src="/img/li.svg" alt="li">
-        <img class="nav-title" src="/img/liu.svg" alt="liu">
-        <img class="nav-title" src="/img/shuang.svg" alt="shuang">
-      </a>
+  <div class="container">
+    <header>
+      <div class="header-wrapper">
+        <a href="/">
+          <div class="headline">
+            <img src="/img/kong.svg" alt="kong">
+            <img src="/img/li.svg" alt="li">
+            <img src="/img/liu.svg" alt="liu">
+            <img src="/img/shuang.svg" alt="shuang">
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">首页</a>
+            </li>
+            <li>
+              <a href="">关于</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
       <ul>
         <li>
-          <a href="/">首页</a>
+          <a href="/post/float-and-endian/">
+            <span class="post-title">浮点数和端序</span>
+            <time class="homepage-time post-info" datetime="2024-12-18T08:00:00+08:00">2024-12-18</time>
+          </a>
         </li>
         <li>
-          <a href="">关于</a>
+          <a>
+            <span class="post-title">你好</span>
+            <time class="homepage-time post-info" datetime="2024-11-25T08:00:00+08:00">2024-11-25</time>
+          </a>
         </li>
       </ul>
-    </nav>
-  </header>
-  <main>
-    <ul>
-      <li>
-        <a href="/post/float-and-endian/">
-          <h4 class="post-title">浮点数和端序</h4>
-          <time class="homepage-time post-info" datetime="2024-12-18T08:00:00+08:00">2024-12-18</time>
-        </a>
-      </li>
-      <li>
-        <a>
-          <h4 class="post-title">你好</h4>
-          <time class="homepage-time post-info" datetime="2024-11-25T08:00:00+08:00">2024-11-25</time>
-        </a>
-      </li>
-    </ul>
-  </main>
+    </main>
+  </div>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,81 +7,86 @@
   <title>浮点数和端序</title>
 </head>
 <body>
-  <header>
-    <nav>
-      <a class="headline" href="/">
-        <img class="nav-title" src="/img/kong.svg" alt="kong">
-        <img class="nav-title" src="/img/li.svg" alt="li">
-        <img class="nav-title" src="/img/liu.svg" alt="liu">
-        <img class="nav-title" src="/img/shuang.svg" alt="shuang">
-      </a>
-      <ul>
-        <li>
-          <a href="/">首页</a>
-        </li>
-        <li>
-          <a href="">关于</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <article>
-      <h1 class="heading">浮点数和端序</h1>
-      <h1>float 和 double</h1>
-      <p>计算机中通常用浮点数来表示小数。在 IEEE 754 标准中，规定了两种常用的浮点类型：float 和 double，分别为单精度和双精度浮点类型。float 采用4个字节存储，double 采用8个字节存储。浮点类型类似于科学计数法的结构。float 的结构是，从高位向低位，依次是1比特符号、8比特阶码、23比特尾数。double的结构是，从高位向低位，依次是1比特符号、11比特阶码、52比特尾数。比如 -123.25 的 float 表示是</p>
-      <pre class="multiline-code"><code> 1   10000101   11101101000000000000000
+  <div class="container">
+    <header>
+      <div class="header-wrapper">
+        <a href="/">
+          <div class="headline">
+            <img src="/img/kong.svg" alt="kong">
+            <img src="/img/li.svg" alt="li">
+            <img src="/img/liu.svg" alt="liu">
+            <img src="/img/shuang.svg" alt="shuang">
+          </div>
+        </a>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">首页</a>
+            </li>
+            <li>
+              <a href="">关于</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <article>
+        <h1 class="heading">浮点数和端序</h1>
+        <h1>float 和 double</h1>
+        <p>计算机中通常用浮点数来表示小数。在 IEEE 754 标准中，规定了两种常用的浮点类型：float 和 double，分别为单精度和双精度浮点类型。float 采用4个字节存储，double 采用8个字节存储。浮点类型类似于科学计数法的结构。float 的结构是，从高位向低位，依次是1比特符号、8比特阶码、23比特尾数。double的结构是，从高位向低位，依次是1比特符号、11比特阶码、52比特尾数。比如 -123.25 的 float 表示是</p>
+        <pre class="multiline-code"><code> 1   10000101   11101101000000000000000
  -   --------   -----------------------
 符号   阶码               尾数</code></pre>
-      <p>符号位为0表示正数，为1表示负数。阶码部分采用偏移量形式，即实际指数加上 <code class="inline-code">0b01111111</code>（127）。二进制尾数（除了0）的第一个比特必然是1，因此省略这一位以节约空间。double 类似，不过偏移量是 <code class="inline-code">0b01111111111</code>（1023）。</p>
-      <p>有几个特殊的浮点数：</p>
-      <table>
-        <thead>
-          <tr>
-            <th>浮点数</th>
-            <th>符号</th>
-            <th>阶码</th>
-            <th>尾数</th>
-            <th>意义</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0.0</td>
-            <td>0或1（正0.0等于负0.0）</td>
-            <td>全为0</td>
-            <td>全为0</td>
-            <td>浮点数0.0，或者根据阶码的意义认为是无穷小</td>
-          </tr>
-          <tr>
-            <td>正无穷</td>
-            <td>0</td>
-            <td>全为1</td>
-            <td>全为0</td>
-            <td>浮点数正无穷</td>
-          </tr>
-          <tr>
-            <td>负无穷</td>
-            <td>1</td>
-            <td>全为1</td>
-            <td>全为0</td>
-            <td>浮点数负无穷</td>
-          </tr>
-          <tr>
-            <td>NaN</td>
-            <td>0或1</td>
-            <td>全为0</td>
-            <td>非全0</td>
-            <td>Not a Number，非数字，比如C语言里 <code class="inline-code">0.0/0.0</code></td>
-          </tr>
-        </tbody>
-      </table>
-      <h1>端序</h1>
-      <p>计算机内存可以看作是一维线性空间，内存地址用一个无符号整数就能表示。把数据存入内存时，会遇到一个问题，究竟是把数据的高位放在内存的高地址，低位放在低地址，还是把数据的高位放在内存的低地址，低位放在高地址。前者叫小端序（Little-Endian），后者叫大端序（Big-Endian）。争论哪种方式更好确实是个无聊的问题（出自《格列佛游记》，小人国为应该从小端打蛋还是从大端打蛋争论不休）。端序指的仅仅是字节间的关系，字节内部是没有顺序之说的。</p>
-      <p>存储基本数据类型（整型、浮点型等）时，因为CPU中有相应计算单元，所以此时端序和CPU架构有关，如x86架构采用小端序。当数据结构较为复杂时，端序规则则较为混乱，如网络传输中用大端序，JPEG用大端序，BMP用小端序。</p>
-      <h1>判断端序</h1>
-      <p>我们可以逐比特打印数据来判断端序，并按照人类阅读习惯，数据高位在前，低位在后。C代码如下</p>
-      <pre class="multiline-code"><code>void print_little_endian_binary(void* ptr_small, size_t size) {
+        <p>符号位为0表示正数，为1表示负数。阶码部分采用偏移量形式，即实际指数加上 <code class="inline-code">0b01111111</code>（127）。二进制尾数（除了0）的第一个比特必然是1，因此省略这一位以节约空间。double 类似，不过偏移量是 <code class="inline-code">0b01111111111</code>（1023）。</p>
+        <p>有几个特殊的浮点数：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>浮点数</th>
+              <th>符号</th>
+              <th>阶码</th>
+              <th>尾数</th>
+              <th>意义</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0.0</td>
+              <td>0或1（正0.0等于负0.0）</td>
+              <td>全为0</td>
+              <td>全为0</td>
+              <td>浮点数0.0，或者根据阶码的意义认为是无穷小</td>
+            </tr>
+            <tr>
+              <td>正无穷</td>
+              <td>0</td>
+              <td>全为1</td>
+              <td>全为0</td>
+              <td>浮点数正无穷</td>
+            </tr>
+            <tr>
+              <td>负无穷</td>
+              <td>1</td>
+              <td>全为1</td>
+              <td>全为0</td>
+              <td>浮点数负无穷</td>
+            </tr>
+            <tr>
+              <td>NaN</td>
+              <td>0或1</td>
+              <td>全为0</td>
+              <td>非全0</td>
+              <td>Not a Number，非数字，比如C语言里 <code class="inline-code">0.0/0.0</code></td>
+            </tr>
+          </tbody>
+        </table>
+        <h1>端序</h1>
+        <p>计算机内存可以看作是一维线性空间，内存地址用一个无符号整数就能表示。把数据存入内存时，会遇到一个问题，究竟是把数据的高位放在内存的高地址，低位放在低地址，还是把数据的高位放在内存的低地址，低位放在高地址。前者叫小端序（Little-Endian），后者叫大端序（Big-Endian）。争论哪种方式更好确实是个无聊的问题（出自《格列佛游记》，小人国为应该从小端打蛋还是从大端打蛋争论不休）。端序指的仅仅是字节间的关系，字节内部是没有顺序之说的。</p>
+        <p>存储基本数据类型（整型、浮点型等）时，因为CPU中有相应计算单元，所以此时端序和CPU架构有关，如x86架构采用小端序。当数据结构较为复杂时，端序规则则较为混乱，如网络传输中用大端序，JPEG用大端序，BMP用小端序。</p>
+        <h1>判断端序</h1>
+        <p>我们可以逐比特打印数据来判断端序，并按照人类阅读习惯，数据高位在前，低位在后。C代码如下</p>
+        <pre class="multiline-code"><code>void print_little_endian_binary(void* ptr_small, size_t size) {
     // 数据以小端序存储时，打印正确结果
     unsigned char* ptr = (unsigned char*)ptr_small + size - 1;
     for (; size > 0; size -= 1, ptr -= 1) {
@@ -92,7 +97,7 @@
     }
     putchar('\n');
 }
-    
+
 void print_big_endian_binary(void* ptr_small, size_t size) {
     // 数据以大端序存储时，打印正确结果
     unsigned char* ptr = (unsigned char*)ptr_small;
@@ -104,24 +109,25 @@ void print_big_endian_binary(void* ptr_small, size_t size) {
     }
     putchar('\n');
 }</code></pre>
-      <p>文章开头数据可以通过在x86计算机上执行以下代码得到</p>
-      <pre class="multiline-code"><code>float v = -123.25;
+        <p>文章开头数据可以通过在x86计算机上执行以下代码得到</p>
+        <pre class="multiline-code"><code>float v = -123.25;
 print_little_endian_binary(&v, sizeof(v));</code></pre>
-      <h1>my_float</h1>
-      <p>有意思的是，根据C语言标准，结构体内各字段的存储方式总是先定义的字段在低地址，后定义的字段在高地址，而且结构体还支持位字段，每个基本数据类型字段的端序仍和 CPU 架构相关。所以我们可以在 x86 计算机上以如下方式定义一个 my_float：</p>
-      <pre class="multiline-code"><code>struct my_float {
+        <h1>my_float</h1>
+        <p>有意思的是，根据C语言标准，结构体内各字段的存储方式总是先定义的字段在低地址，后定义的字段在高地址，而且结构体还支持位字段，每个基本数据类型字段的端序仍和 CPU 架构相关。所以我们可以在 x86 计算机上以如下方式定义一个 my_float：</p>
+        <pre class="multiline-code"><code>struct my_float {
     unsigned int tail : 23;
     unsigned int expo : 8;
     unsigned int sign : 1;
 };
-    
+      
 float build_float(unsigned int sign, int exponent, unsigned int tail) {
     unsigned int expo = exponent + 127;
     struct my_float v = {tail, expo, sign};
     return *((float*)&v); // 也可使用共用体
 }</code></pre>
-      <p>所以 <code class="inline-code">build_float(1, 6, 0b11101101000000000000000)</code> 可得 float 类型的 -123.25。</p>
-    </article>
-  </main>
+        <p>所以 <code class="inline-code">build_float(1, 6, 0b11101101000000000000000)</code> 可得 float 类型的 -123.25。</p>
+      </article>
+    </main>
+  </div>
 </body>
 </html>

@@ -1,61 +1,22 @@
 :root {
-  --sans-serif-font:
-    system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Noto Sans', 'Droid Sans', 'Helvetica Neue',
-    'PingFang SC', 'Hiragino Sans GB',
-    'Microsoft YaHei', 'WenQuanYi Micro Hei',
-    sans-serif;
-  --serif-font:
-    'Times New Roman', Times,
-    Georgia, 'Songti SC',
-    'SimSun', 'NSimSun',
-    'STKaiti', 'KaiTi',
-    'Noto Serif CJK SC', 'Source Han Serif SC',
-    'Hiragino Mincho Pro', 'YuMincho',
-    'Baskerville', 'Palatino Linotype',
-    serif;
-  --monospace-font:
-    'Consolas', 'Lucida Console',
-    'SF Mono', 'Menlo', 'Monaco',
-    'DejaVu Sans Mono', 'Liberation Mono',
-    'Noto Sans Mono CJK SC', 'Source Han Mono SC',
-    'Droid Sans Mono', 'Roboto Mono',
-    'Ubuntu Mono', 'Oxygen Mono',
-    'Nimbus Mono L', 'Monaco',
-    'Courier New', Courier,
-    monospace;
+  --sans-serif-font: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --serif-font: "Times New Roman", "Georgia", "Noto Serif CJK SC", serif;
+  --monospace-font: "Source Code Pro", "DejaVu Sans Mono", "Ubuntu Mono", "Anonymous Pro", "Droid Sans Mono", Menlo, Monaco, Consolas, Inconsolata, Courier, monospace;
 }
 
-body {
-  font-size: 20px;
+html {
+  font-size: 16px;
   font-family: var(--sans-serif-font);
-  margin: 0 10px;
-}
-
-header {
-  border-bottom: 1px solid lightgray;
-}
-
-nav {
-  display: flex;
-  height: 4rem;
-  margin: 0;
 }
 
 @media (orientation: landscape) {
-  nav {
-    margin: 0 23%;
+  html {
+    font-size: 18px;
   }
 }
 
-.headline {
-  display: flex;
-}
-
-.nav-title {
-  width: 2.2rem;
-  height: 4rem;
+body {
+  margin: 0;
 }
 
 a {
@@ -64,28 +25,57 @@ a {
   cursor: pointer;
 }
 
-nav ul {
-  list-style: none;
-  font-size: 1.5rem;
-  margin-top: auto;
-  margin-bottom: auto;
+.container {
+  margin: 0 2rem;
+}
+
+header {
+  height: 3rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.header-wrapper {
+  margin: 0 auto;
+  display: flex;
+}
+
+@media (orientation: landscape) {
+  .header-wrapper {
+    max-width: 50rem;
+  }
+}
+
+.headline {
+  display: flex;
+  height: 100%;
+}
+
+.headline img {
+  width: 2rem;
+}
+
+nav {
   margin-left: auto;
-  margin-right: 0;
-  font-family: var(--serif-font);
+  line-height: 3rem;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
 }
 
 nav ul li {
-  display: inline-block;
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 main {
-  margin: 0;
+  margin: 0 auto;
 }
 
 @media (orientation: landscape) {
   main {
-    margin: 0 23%;
+    max-width: 50rem;
   }
 }
 
@@ -108,22 +98,18 @@ main ul li a {
 
 .post-title {
   font-weight: normal;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
   margin-left: 0.2rem;
-  margin-right: auto;
 }
 
 .homepage-time {
   margin-left: auto;
   margin-right: 0.2rem;
-  font-size: 1rem;
 }
 
 article {
   padding-bottom: 3rem;
-  font-size: 1.1rem;
-  line-height: 2rem;
+  line-height: 1.6rem;
 }
 
 .multiline-code {
@@ -141,7 +127,7 @@ article {
 
 code {
   font-family: var(--monospace-font);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 table {
@@ -162,8 +148,7 @@ table, th, td {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--serif-font);
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .post-info {
